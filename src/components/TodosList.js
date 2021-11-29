@@ -7,7 +7,12 @@ export class TodosList extends Component {
             <div>
                  <ul>
                   {this.props.todos.map(todo =>(
-                      <TodoItem  todo={todo} key={todo.id}/>
+                      <TodoItem  
+                      todo={todo} 
+                      key={todo.id} 
+                      handleChangeProps={this.props.handleChangeProps}
+                      handleDeleteProps={this.props.handleDeleteProps}
+                      />
                   ))}
               </ul>
             </div>

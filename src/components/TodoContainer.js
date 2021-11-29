@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Header from './Header';
 import TodosList from './TodosList';
 
 export class TodoContainer extends Component {
@@ -21,10 +22,31 @@ export class TodoContainer extends Component {
               }
             ]
     }
+
+    handleDelete = id => {
+        console.log("Deleted", id)
+    }
+
+
+    handleChange = id => {
+        this.setState(prevState =>({
+          todos: prevState.todos.map(todo => {
+            if (todo.id === id) {
+               return{
+                ...todo,
+                completed: !todo.completed
+               }
+            }
+            return todo;
+          })
+        }));
+      };
+
     render() {
         return (
             <React.Fragment>
-                <TodosList  todos={this.state.todos}/>
+                <Header />
+                <TodosList  todos={this.state.todos} handleChangeProps={this.handleChange} handleDeleteProps={this.handleDeleteProps}/>
             </React.Fragment>
         )
     }
