@@ -9,7 +9,7 @@ const TodoItem = (props) => {
             
             />
             {props.todo.title}
-            <button onClick={() => console.log(props.todo.id)}>Delete</button>
+            <button onClick={() => props.handleDeleteProps(props.todo.id)}>Delete</button>
         </li>
         )
 }
