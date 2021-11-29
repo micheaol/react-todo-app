@@ -63,11 +63,13 @@ export class TodoContainer extends Component {
 
     render() {
         return (
-            <React.Fragment>
-                <Header />
-                <InputTodo addTodoProps={this.addTodoItem}/>
-                <TodosList  todos={this.state.todos} handleChangeProps={this.handleChange} handleDeleteProps={this.handleDelete}/>
-            </React.Fragment>
+            <div className="container">
+                <div className="inner">
+                    <Header />
+                    <InputTodo addTodoProps={this.addTodoItem}/>
+                    <TodosList  todos={this.state.todos} handleChangeProps={this.handleChange} handleDeleteProps={this.handleDelete}/>
+                </div>
+            </div>
         )
     }
 }
