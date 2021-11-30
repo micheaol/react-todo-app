@@ -63,3 +63,32 @@
     outline: none;
     border: none;
   }
+
+  .input-submit svg {
+    color: darkcyan;
+    font-size: 20px;
+    margin-top: 2px;
+  }
+
+  .active-link {
+    color: orangered;
+    text-decoration: underline;
+  }
+
+  .navBar {
+    margin-left: 5%;
+    margin-top: 5%;
+  }
+  .navBar ul {
+    list-style-type: none;
+    display:  flex;
+    justify-content:space-evenly;
+  }
+  .navBar ul li a{
+    text-decoration: none;
+  }
+
+  .about-page {
+    margin-left: 10%;
+    margin-right: 10%;
+  }

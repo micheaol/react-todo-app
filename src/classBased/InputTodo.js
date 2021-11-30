@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { FaPlusCircle } from "react-icons/fa"
+
 
 export class InputTodo extends Component {
 
@@ -34,7 +36,9 @@ export class InputTodo extends Component {
                     className="input-text"
                     onChange={this.onChange}
                     />
-                    <button className="input-submit">Submit</button>
+                    <button className="input-submit">
+                    <FaPlusCircle color="darkcyan" size="20px" className="submit-icon"/>
+                    </button>
                     
                 </form>
             </div>

@@ -12,6 +12,7 @@ export class TodosList extends Component {
                       key={todo.id} 
                       handleChangeProps={this.props.handleChangeProps}
                       handleDeleteProps={this.props.handleDeleteProps}
+                      setUpdate={this.props.setUpdate}
                       />
                   ))}
               </ul>
