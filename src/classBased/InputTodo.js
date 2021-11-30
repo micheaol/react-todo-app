@@ -1,49 +1,60 @@
-import React, { Component } from 'react'
-import { FaPlusCircle } from "react-icons/fa"
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import { FaPlusCircle } from 'react-icons/fa';
 
+class InputTodo extends Component {
+  constructor() {
+    super();
 
-export class InputTodo extends Component {
+    this.state = {
+      title: '',
+    };
+  }
 
-    state = {
-        title: ""
+    onChange = (e) => {
+      this.setState({
+        [e.target.name]: e.target.value,
+
+      });
     }
 
-    onChange = e =>{
+    handleSubmit = (e) => {
+      e.preventDefault();
+      if (this.state.title.trim()) {
+        this.props.addTodoProps(this.state.title);
         this.setState({
-            [e.target.name]: e.target.value,
-            
-        })
+          title: '',
+        });
+      } else {
+        alert('Please write item');
+      }
     }
-
-    handleSubmit = e =>{
-        e.preventDefault();
-        if(this.state.title.trim()){
-            this.props.addTodoProps(this.state.title)
-            this.setState({
-                title: ""
-              });
-        }else{
-            alert("Please write item")
-        }
-    }
+    
     render() {
-        return (
-            <div>
-                <form onSubmit={this.handleSubmit}>
-                    <input type="text" placeholder="Add Todo..." 
-                    value={this.state.title}
-                    name="title"
-                    className="input-text"
-                    onChange={this.onChange}
-                    />
-                    <button className="input-submit">
-                    <FaPlusCircle color="darkcyan" size="20px" className="submit-icon"/>
-                    </button>
-                    
-                </form>
-            </div>
-        )
+      const { title } = this.state;
+      return (
+        <div>
+          <form onSubmit={this.handleSubmit}>
+            <input
+              type="text"
+              placeholder="Add Todo..."
+              value={title}
+              name="title"
+              className="input-text"
+              onChange={this.onChange}
+            />
+            <button className="input-submit" type="submit">
+              <FaPlusCircle color="darkcyan" size="20px" className="submit-icon" />
+            </button>
+
+          </form>
+        </div>
+      );
     }
 }
 
-export default InputTodo
+InputTodo.propTypes = {
+  title: PropTypes.node.isRequired,
+};
+
+export default InputTodo;
